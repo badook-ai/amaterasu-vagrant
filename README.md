@@ -14,7 +14,7 @@ git clone https://github.com/shintoio/amaterasu.git
 **Note:** the vagrentfile assumes you have cloned the repository in the  *~/Shinto* directory. If you have cloned the repository to a different path, please edit the following line before continue the installation  to point to the correct path:
 
 ```
-config.vm.synced_folder "~/Shinto/amaterasu/target/scala-2.11", "/ama"
+config.vm.synced_folder "~/Shinto/amaterasu/build/amaterasu", "/ama"
 ```
 
 ## Installation
