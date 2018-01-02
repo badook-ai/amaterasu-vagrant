@@ -5,6 +5,8 @@ echo "192.168.33.11 node1" >> /etc/hosts
 echo "192.168.33.12 node2" >> /etc/hosts
 echo "192.168.33.13 node3" >> /etc/hosts
 
+sudo yum -y install java-1.8.0-openjdk-devel
+
 echo "installin mesos and marathon"
 echo "----------------------------"
 
@@ -39,5 +41,5 @@ service zookeeper-server start
 echo "Starting mesos"
 echo "--------------"
 
-service mesos-master start
-service mesos-slave start
+sudo service mesos-master start
+sudo service mesos-slave start

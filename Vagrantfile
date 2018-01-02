@@ -7,10 +7,10 @@ Vagrant.configure(2) do |config|
    
     node1.vm.network "private_network", ip: "192.168.33.11"
     node1.vm.hostname = "node1"
-    node1.vm.synced_folder "~/Work/Shinto/roadan/amaterasu/build/amaterasu", "/ama"
+    node1.vm.synced_folder "~/Work/eyalben/incubator-amaterasu/build/amaterasu", "/ama"
            
     node1.vm.provider "virtualbox" do |vb|
-      vb.memory = "4098"
+      vb.memory = "8196"
 		  vb.cpus = 3
     end
 
