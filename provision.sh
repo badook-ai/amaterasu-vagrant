@@ -28,6 +28,9 @@ echo '10mins' > /etc/executor_registration_timeout
 sudo echo "export LIBPROCESS_IP=192.168.33.11" >> /home/vagrant/.bashrc
 sudo echo "export SPARK_LOCAL_IP=192.168.33.11" >> /home/vagrant/.bashrc
 
+#disabling selinux
+sudo sed -i 's/SELINUX=permissive/SELINUX=disabled/g' /etc/selinux/config
+
 source ~/.bashrc
 #setting the --no-switch_user flag for mesos slave
 sudo chmod 777 -R /etc/mesos-slave/
@@ -42,8 +45,9 @@ yum -y install zookeeper zookeeper-server
 sudo -u zookeeper zookeeper-server-initialize --myid=1
 service zookeeper-server start
 
-echo "Starting mesos"
-echo "--------------"
+echo "Starting mesos and docker"
+echo "--------------------------"
 
+sudo service docker start
 sudo service mesos-master start
 sudo service mesos-slave start
