@@ -25,6 +25,12 @@ echo 'cgroups/devices,disk/du,docker/runtime,filesystem/linux' > /etc/mesos-slav
 echo 'docker' > /etc/mesos-slave/image_providers
 echo '10mins' > /etc/executor_registration_timeout
 
+sudo cat <<EOT > /etc/docker/daemon.json
+{
+  "storage-driver": "devicemapper"
+}
+EOT
+
 sudo echo "export LIBPROCESS_IP=192.168.33.11" >> /home/vagrant/.bashrc
 sudo echo "export SPARK_LOCAL_IP=192.168.33.11" >> /home/vagrant/.bashrc
 
